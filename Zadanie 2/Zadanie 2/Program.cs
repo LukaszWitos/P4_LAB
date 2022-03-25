@@ -23,7 +23,9 @@ namespace P4___2
             new SqlConnection(connectionString))
             {
                 connection.Open();
+                Console.WriteLine("Proszę podać id Regionu");
                 var id = Console.ReadLine();
+                Console.WriteLine("Proszę podać Nazwę Regionu");
                 var idr = Console.ReadLine();
                 // Create the Command and Parameter objects.
                 // Open the connection in a try/catch block.
