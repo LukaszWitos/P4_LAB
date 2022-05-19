@@ -10,7 +10,7 @@ var autor =
     new Autor()
     {
         Imie = "Konrad",
-        Nazwisko = "dsa"
+        Nazwisko = "bob"
     };
 
 
@@ -28,7 +28,7 @@ context.Autor.Add(autor);
 context.SaveChanges();
 
 foreach (var author in context.Autor.Where
-    (a => a.Nazwisko == "Konrad")
+    (a => a.Nazwisko == "bob")
     .Include
     (a => a.Ksiazka)) ;
 /*foreach (var item in context.Clients
