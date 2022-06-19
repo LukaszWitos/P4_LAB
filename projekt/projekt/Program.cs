@@ -105,6 +105,9 @@ int a = Convert.ToInt32(Console.ReadLine());
 switch (a)
 {
     case 1:
+
+        
+
         foreach (var samochod in context.samochod)
         {
             Console.Write($"{samochod.marka}\n");
@@ -140,34 +143,17 @@ switch (a)
         Console.WriteLine("Podaj ID samochodu");
 
         var p = Convert.ToInt32(Console.ReadLine());
-        var tabelka = context.samochod.Where(x => x.id == p).ToArray();
+        var tabelka = context.samochod.Where(x => x.id == p).FirstOrDefault();
 
         Console.WriteLine("Wprowadź markę");
-        var marka2 = Console.ReadLine();
+        tabelka.marka = Console.ReadLine();
         Console.WriteLine("Wprowadź VIN");
-        var VIN2 = Convert.ToInt32(Console.ReadLine());
+        tabelka.VIN = Convert.ToInt32(Console.ReadLine());
         Console.WriteLine("Wprowadź Status");
-        var Status2 = Console.ReadLine();
+        tabelka.Status = Console.ReadLine();
 
-
-
-
-        context.samochod.Update(samochod.tabelka[0])
-        {
-            marka = marka2,
-            VIN = VIN2,
-            Status = Status2
-        });
 
         context.SaveChanges();
-
-
-        //foreach (var samochod in tabelka)
-        //{
-        //    Console.Write($"{samochod.id}\n{samochod.marka}\n{samochod.VIN}\n{samochod.Status}\n");
-        //}
-
-
 
 
 
