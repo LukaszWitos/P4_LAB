@@ -5,18 +5,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace lab5
+namespace zadanie_4
 {
-    internal class Client
+    internal class Autor
     {
-        public Client()
+        public Autor()
         {
-            Orders = new List<Order>();
+            Ksiazka = new List<Ksiazka>();
         }
         public int Id { get; set; }
+        public string Imie { get; set; }
 
         [Required]
-        public string Name { get; set; }
-        public List<Order> Orders { get; set; }
+        public string Nazwisko { get; set; }
+        public List<Ksiazka> Ksiazka { get; set; }
     }
 }

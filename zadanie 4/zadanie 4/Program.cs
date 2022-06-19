@@ -1,28 +1,39 @@
-﻿// See https://aka.ms/new-console-template for more information
-using lab5;
+﻿using lab5;
 using Microsoft.EntityFrameworkCore;
-
+using zadanie_4;
 Console.WriteLine("Hello, World!");
 
 var context = new MyDbContext();
 context.Database.EnsureCreated();
-/*var client =
-    new Client()
+
+var autor =
+    new Autor()
     {
-        Name = "Jan Kowalski"
+        Imie = "Konrad",
+        Nazwisko = "bob"
     };
 
-client.Orders.Add(new Order()
+
+autor.Ksiazka.Add(new Ksiazka()
 {
-    Price = 10m
+    Tytul = "Cos o czyms",
+    rok = 2000,
+    Autor = "Konrad"
 });
- context.Clients.Add(client);
+context.Autor.Add(autor);
+
+
+
 
 context.SaveChanges();
-*/
-foreach (var item in context.Clients
+
+foreach (var author in context.Autor.Where
+    (a => a.Nazwisko == "bob")
+    .Include
+    (a => a.Ksiazka)) ;
+/*foreach (var item in context.Clients
     .Include(x => x.Orders)
     .ToList())
 {
     Console.WriteLine(item.Name);
-}
+}*/
