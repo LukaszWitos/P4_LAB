@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using projekt;
 using System.Linq;
 
-Console.WriteLine("Hello, World!");
+
 
 var context = new MyDbContext();
 context.Database.EnsureCreated();
@@ -160,6 +160,9 @@ switch (a)
 
         break;
     default:
+
+
+        Console.WriteLine("Błędna liczba");
 
 
         break;
