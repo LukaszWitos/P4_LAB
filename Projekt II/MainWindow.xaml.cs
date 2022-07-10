@@ -75,5 +75,61 @@ namespace Projekt_II
 
 
         }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            using (var context = new MyDbContext())
+            {
+                var dokument = Convert.ToInt32(doks.Text);
+                var znajdzdok = context.dokumenty.SingleOrDefault(x => x.numer == dokument);
+
+               if (znajdzdok == null)
+                {
+                    MessageBox.Show("Podany numer Dokumentu nie znajduje sie w bazie danych", "Brak danych", MessageBoxButton.OK, MessageBoxImage.Warning);
+                }
+               else if (znajdzdok != null)
+               {
+                    MessageBox.Show("Podany numer Dokumentu  znajduje sie w bazie danych", "Dane Zgodne", MessageBoxButton.OK, MessageBoxImage.Information);
+               }
+            }
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            using (var context = new MyDbContext())
+            {
+                var samochod = Convert.ToInt32(samo.Text);
+                var znajdzsam = context.samochod.SingleOrDefault(x => x.id == samochod);
+
+                if (znajdzsam == null)
+                {
+                    MessageBox.Show("Podany numer id samochodu nie znajduje sie w bazie danych", "Brak danych", MessageBoxButton.OK, MessageBoxImage.Warning);
+                }
+                else if (znajdzsam != null)
+                {
+                    MessageBox.Show("Podany numer id samochodu  znajduje sie w bazie danych", "Dane Zgodne", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+            }
+
+        }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            using (var context = new MyDbContext())
+            {
+                var wlasciciel = Convert.ToInt32(wlas.Text);
+                var znajdzwla = context.wlasciciel.SingleOrDefault(x => x.id == wlasciciel);
+
+                if (znajdzwla == null)
+                {
+                    MessageBox.Show("Podany numer id wlasciciela nie znajduje sie w bazie danych", "Brak danych", MessageBoxButton.OK, MessageBoxImage.Warning);
+                }
+                else if (znajdzwla != null)
+                {
+                    MessageBox.Show("Podany numer id wlasciciela  znajduje sie w bazie danych", "Dane Zgodne", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+            }
+
+        }
     }
 }
