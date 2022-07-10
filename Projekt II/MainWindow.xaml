@@ -7,6 +7,27 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
+        <Grid.RowDefinitions>
+
+            <RowDefinition Height="60px"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <ScrollViewer VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Disabled" Width="130" HorizontalAlignment="Left" Margin="0,0,0,54" Grid.Row="1">
+            <StackPanel Grid.Column="0" Grid.Row="1" x:Name="listadokumentów" Margin="0,0,5,0"/>
+        </ScrollViewer>
+        <Button Style="{StaticResource przycisk}" Content="Wyświetlanie Danych" HorizontalAlignment="Center" VerticalAlignment="Center" IsEnabled="True"  Click="Button_Click" />
+        <ScrollViewer VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Disabled" Width="142" HorizontalAlignment="Center" Margin="0,0,0,54" Grid.Row="1">
+            <StackPanel Grid.Column="0" Grid.Row="1" x:Name="listasamochodow" Margin="0,0,5,0"/>
+        </ScrollViewer>
+        <ScrollViewer VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Disabled" Width="129" HorizontalAlignment="Left" Margin="271,0,0,54" Grid.Row="1">
+            <StackPanel Grid.Column="0" Grid.Row="1" x:Name="listawlascieli" Margin="0,0,5,0"/>
+        </ScrollViewer>
+        <TextBox Style="{StaticResource przycisk}"Grid.Column="1" HorizontalAlignment="Left" Margin="63,40,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Wyszukaj po samochodzie" VerticalAlignment="Top" Width="120"/>
+
 
     </Grid>
 </Window>

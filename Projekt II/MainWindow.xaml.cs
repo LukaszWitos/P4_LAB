@@ -22,7 +22,58 @@ namespace Projekt_II
     {
         public MainWindow()
         {
-            InitializeComponent();
+            ////using (var context = new MyDbContext())
+            ////{
+            ////  context.Database.EnsureCreated();
+            ////}
+                InitializeComponent();
+           
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            
+            using (var context = new MyDbContext())
+            {
+                var btn = sender as Button;
+                listadokumentów.Children.Clear();
+                var dokumenty = context.dokumenty.ToArray();
+                foreach (var dokument in dokumenty)
+                {
+                    listadokumentów.Children.Add(new Label()
+                    {
+                        Content = $"{dokument.id}. {dokument.stan} {dokument.numer}"
+                    }); 
+                }
+            }
+            using (var context = new MyDbContext())
+            {
+                var btn = sender as Button;
+                listasamochodow.Children.Clear();
+                var samochody = context.samochod.ToArray();
+                foreach (var samochod in samochody)
+                {
+                    listasamochodow.Children.Add(new Label()
+                    {
+                        Content = $"{samochod.id}. {samochod.marka} {samochod.VIN} {samochod.Status}"
+                    });
+                }
+            }
+            using (var context = new MyDbContext())
+            {
+                var btn = sender as Button;
+                listawlascieli.Children.Clear();
+                var wlasciciele = context.wlasciciel.ToArray();
+                foreach (var wlasciciel in wlasciciele)
+                {
+                    listawlascieli.Children.Add(new Label()
+                    {
+                        Content = $"{wlasciciel.id}. {wlasciciel.imie} {wlasciciel.nazwisko} {wlasciciel.numer_tel}"
+                    });
+                }
+            }
+
+
         }
     }
 }
