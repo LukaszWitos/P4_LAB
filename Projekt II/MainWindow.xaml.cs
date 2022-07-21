@@ -80,17 +80,34 @@ namespace Projekt_II
         {
             using (var context = new MyDbContext())
             {
-                var dokument = Convert.ToInt32(doks.Text);
-                var znajdzdok = context.dokumenty.SingleOrDefault(x => x.numer == dokument);
+                try { 
+
+               var dokument = Convert.ToInt32(doks.Text);
+
+               
+
+               var znajdzdok = context.dokumenty.SingleOrDefault(x => x.numer == dokument);
+                    
+
+
 
                if (znajdzdok == null)
-                {
+               {
                     MessageBox.Show("Podany numer Dokumentu nie znajduje sie w bazie danych", "Brak danych", MessageBoxButton.OK, MessageBoxImage.Warning);
-                }
+               }
                else if (znajdzdok != null)
                {
                     MessageBox.Show("Podany numer Dokumentu  znajduje sie w bazie danych", "Dane Zgodne", MessageBoxButton.OK, MessageBoxImage.Information);
                }
+
+                }
+
+                catch (FormatException)
+                {
+                    MessageBox.Show("Musisz wprowadzić Dane!", "Brak danych", MessageBoxButton.OK, MessageBoxImage.Stop);
+                }
+
+
             }
         }
 
@@ -98,16 +115,24 @@ namespace Projekt_II
         {
             using (var context = new MyDbContext())
             {
-                var samochod = Convert.ToInt32(samo.Text);
-                var znajdzsam = context.samochod.SingleOrDefault(x => x.id == samochod);
+                try
+                {
+                    var samochod = Convert.ToInt32(samo.Text);
+                    var znajdzsam = context.samochod.SingleOrDefault(x => x.id == samochod);
 
-                if (znajdzsam == null)
-                {
-                    MessageBox.Show("Podany numer id samochodu nie znajduje sie w bazie danych", "Brak danych", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    if (znajdzsam == null)
+                    {
+                        MessageBox.Show("Podany numer id samochodu nie znajduje sie w bazie danych", "Brak danych", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    }
+                    else if (znajdzsam != null)
+                    {
+                        MessageBox.Show("Podany numer id samochodu  znajduje sie w bazie danych", "Dane Zgodne", MessageBoxButton.OK, MessageBoxImage.Information);
+                    }
+
                 }
-                else if (znajdzsam != null)
+                catch (FormatException)
                 {
-                    MessageBox.Show("Podany numer id samochodu  znajduje sie w bazie danych", "Dane Zgodne", MessageBoxButton.OK, MessageBoxImage.Information);
+                    MessageBox.Show("Musisz wprowadzić Dane!", "Brak danych", MessageBoxButton.OK, MessageBoxImage.Stop);
                 }
             }
 
@@ -117,6 +142,7 @@ namespace Projekt_II
         {
             using (var context = new MyDbContext())
             {
+                try { 
                 var wlasciciel = Convert.ToInt32(wlas.Text);
                 var znajdzwla = context.wlasciciel.SingleOrDefault(x => x.id == wlasciciel);
 
@@ -127,6 +153,12 @@ namespace Projekt_II
                 else if (znajdzwla != null)
                 {
                     MessageBox.Show("Podany numer id wlasciciela  znajduje sie w bazie danych", "Dane Zgodne", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+                }
+
+                catch (FormatException)
+                {
+                    MessageBox.Show("Musisz wprowadzić Dane!", "Brak danych", MessageBoxButton.OK, MessageBoxImage.Stop);
                 }
             }
 
