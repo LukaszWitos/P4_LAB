@@ -27,10 +27,27 @@ context.Autor.Add(autor);
 
 context.SaveChanges();
 
-foreach (var author in context.Autor.Where
-    (a => a.Nazwisko == "bob")
-    .Include
-    (a => a.Ksiazka)) ;
+var wyszukanie = context.Ksiazka
+    .Where(Ksiazka => Ksiazka.Autor == "Konrad");
+
+foreach (var Ksiazka in wyszukanie)
+{
+    Console.WriteLine($"{Ksiazka.Autor}{Ksiazka.Tytul}{Ksiazka.rok}");
+}
+
+
+foreach (var Ksiazka in context.Ksiazka)
+{
+    Console.Write($"{Ksiazka.Id}\n");
+    Console.Write($"{Ksiazka.Tytul}\n");
+    Console.Write($"{Ksiazka.Autor}\n");
+}
+
+
+
+
+
+
 /*foreach (var item in context.Clients
     .Include(x => x.Orders)
     .ToList())

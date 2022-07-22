@@ -26,7 +26,7 @@
         <ScrollViewer VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Disabled" Width="129" HorizontalAlignment="Left" Margin="271,0,0,54" Grid.Row="1">
             <StackPanel Grid.Column="0" Grid.Row="1" x:Name="listawlascieli" Margin="0,0,5,0"/>
         </ScrollViewer>
-        <TextBox Style="{StaticResource Tekstowy}" x:Name="doks" Text="{Binding Path=doks, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Grid.Column="1" HorizontalAlignment="Left" Margin="71,10,0,0" Grid.Row="1" TextWrapping="Wrap"  VerticalAlignment="Top"  />
+        <TextBox Style="{StaticResource Tekstowy}" x:Name="doks" Text="{Binding Path=doks, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Grid.Column="1" HorizontalAlignment="Left" Margin="71,10,0,0" Grid.Row="1" TextWrapping="Wrap"  VerticalAlignment="Top" Text="0" />
         <Button Grid.Column="1" Content="Sprawdzenie &#xD;&#xA;dokumentu po numerze" HorizontalAlignment="Left" Margin="84,60,0,0" Grid.Row="1" VerticalAlignment="Top" Height="38" Width="158" Click="Button_Click_1"/>
         <TextBox Style="{StaticResource Tekstowy}" x:Name="samo" Text="{Binding Path=samo, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" HorizontalAlignment="Left" Margin="71,127,0,0" Grid.Row="1" TextWrapping="Wrap"  VerticalAlignment="Top" />
         <TextBox Style="{StaticResource Tekstowy}" x:Name="wlas" Text="{Binding Path=wlas, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" HorizontalAlignment="Left" Margin="71,248,0,0" Grid.Row="1" TextWrapping="Wrap"  VerticalAlignment="Top" />
