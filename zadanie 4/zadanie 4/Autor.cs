@@ -15,7 +15,7 @@ namespace zadanie_4
         }
         public int Id { get; set; }
         public string Imie { get; set; }
-
+        
         [Required]
         public string Nazwisko { get; set; }
         public List<Ksiazka> Ksiazka { get; set; }
